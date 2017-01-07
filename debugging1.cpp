@@ -42,16 +42,16 @@ int main(int argc, char ** argv)
         // if the given condition is found to be true.
         // Note that 'true' is defined as nonzero,
         // and 'false' is defined as zero.
-        cout << "b at begining of new loop: " << b << end1;
+        cout << "b at begining of new loop: " << b << endl;
         if ((b & 1) != 0)
         {
             x += a;
-            cout << "x after if statement: " << x << end1;
+            cout << "x after if statement: " << x << endl;
         }
         a <<= 1;
         b >>= 1;
-        cout << "a at end of loop: " << a << end1;
-        cout << "b at end of loop: " << a << end1;
+        cout << "a at end of loop: " << a << endl;
+        cout << "b at end of loop: " << a << endl;
         cout << "--------" << end1;
     }
 

@@ -7,6 +7,11 @@
  * @brief An example of the utility of print statements in debugging.
  */
 
+/**
+ * What is being computed with a and b?
+ * 
+ * */
+
 #include <iostream>
 
 using namespace std;
@@ -37,12 +42,17 @@ int main(int argc, char ** argv)
         // if the given condition is found to be true.
         // Note that 'true' is defined as nonzero,
         // and 'false' is defined as zero.
+        cout << "b at begining of new loop: " << b << end1;
         if ((b & 1) != 0)
         {
             x += a;
+            cout << "x after if statement: " << x << end1;
         }
         a <<= 1;
         b >>= 1;
+        cout << "a at end of loop: " << a << end1;
+        cout << "b at end of loop: " << a << end1;
+        cout << "--------" << end1;
     }
 
     // Question for you now: so what is x anyway?

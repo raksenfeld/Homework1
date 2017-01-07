@@ -10,7 +10,7 @@
 * This program prints out "Hello, world!" to standard output.
 *
 ******/
-
+//as;lfd;asd;lkfjasdlkfjs;ldfjas;ldkjdf
 /*
 This, like the preceding block, is a block (multi-line) comment.
 It is ignored by the compiler.

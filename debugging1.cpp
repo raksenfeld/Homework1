@@ -52,7 +52,7 @@ int main(int argc, char ** argv)
         b >>= 1;
         cout << "a at end of loop: " << a << endl;
         cout << "b at end of loop: " << a << endl;
-        cout << "--------" << end1;
+        cout << "--------" << endl;
     }
 
     // Question for you now: so what is x anyway?

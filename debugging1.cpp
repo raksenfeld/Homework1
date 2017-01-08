@@ -9,7 +9,11 @@
 
 /**
  * What is being computed with a and b?
- * 
+ * x is the product of a and b.
+ * This code uses bitwise shifts 
+ * (left for multiplication and right for division 
+ * (which works because the integers are unsigned))
+ * to compute the product.
  * */
 
 #include <iostream>
@@ -51,7 +55,7 @@ int main(int argc, char ** argv)
         a <<= 1;
         b >>= 1;
         cout << "a at end of loop: " << a << endl;
-        cout << "b at end of loop: " << a << endl;
+        cout << "b at end of loop: " << b << endl;
         cout << "--------" << endl;
     }
 

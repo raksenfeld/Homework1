@@ -39,7 +39,7 @@ unsigned int divide(unsigned int a, unsigned int b)
         y <<= 1;
         // and then copying the high bit of the dividend into the
         // low bit of the remainder...
-        if (a & 0x80000000);
+        if (a & 0x80000000)
         {
             y |= 1;
         }
@@ -54,10 +54,10 @@ unsigned int divide(unsigned int a, unsigned int b)
         x <<= 1;
         // then we test to see if we can do the subtraction.
         // If we can...
-        if (y > b)
+        if (y >= b)
         {
             // then we subtract out the divisor from the remainder,
-            y = b;
+            y -= b;
             // and set the correct bit in the quotient.
             x |= 1;
         }
@@ -74,6 +74,9 @@ unsigned int divide(unsigned int a, unsigned int b)
 int main(int argc, char ** argv)
 {
     // This should print 422. Be sure to try some more test cases though!
-    cout << divide(15625, 37) << endl;
+    cout <<"15625/37 = " << divide(15625, 37) << endl;
+    cout <<"0/37 = " << divide(0, 37) << endl;
+    cout <<"156/2 = " << divide(156, 2) << endl;
+    cout <<"15/2222 = " << divide(15, 2222) << endl;
     return 0;
 }

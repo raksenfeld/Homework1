@@ -17,11 +17,18 @@ using namespace std;
  */
 int main(int argc, char *argv[])
 {
+	// In line 31, since 'a' is already an int, there was no need to 
+	//    typecast it. Additionally, we just want its address, not for
+	//    it to become a pointer, so the '*' shouldn't be there.
+	//    In line 41, we want b to point to the address of the int * c. 
+	//    Thus, I typecasted c before getting the address.
+	
+	
     int a = 5, *b;
     void *c;
 
     // Now make `b` point to `a`.
-    b = (int *) a;
+    b = &a;
 
     /***** CHANGE NOTHING BELOW THIS LINE *****/
     cout << "The value pointed by `b` is " << *b;
@@ -31,7 +38,7 @@ int main(int argc, char *argv[])
     c = malloc(10 * sizeof(int));
 
     // Get the address of the array.
-    b = (int *) &c;
+    b = &((int *) c);
 
     /***** CHANGE NOTHING BELOW THIS LINE *****/
     b[2] = 5;

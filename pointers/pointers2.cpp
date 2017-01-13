@@ -17,7 +17,14 @@ using namespace std;
  */
 int main(int argc, char *argv[])
 {
-    int *a;
+	// 'a' was not initialized to nullptr, so it could have any value.
+	//    Thus, when the if statement ran, 'a' could be freed even if 
+	//    memory was never allocated to 'a'. If whatever memory 'a' 
+	//    pointed to was important to not free, this could cause a 
+	//    problem. I initialized 'a' to nullptr to fix this.
+	
+	
+    int *a = nullptr;
     time_t t = time(nullptr); // Get the current Unix timestamp
 
     /***** CHANGE NOTHING BELOW THIS LINE *****/

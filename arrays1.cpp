@@ -81,6 +81,20 @@ void ascending_seq_overwrite(int arr[], int n)
 	}
 }
 
+/**
+* @brief Prints out the elements of an integer array.
+*
+* @param arr the array to print
+* @param n   the number of elements in the array
+*/
+void array_print(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << endl;
+    }
+    cout << endl;
+}
 
 
 /**
@@ -118,7 +132,8 @@ int main(int argc, char ** argv)
     // Test for ascending_seq_overwrite function:
     ascending_seq_overwrite(test_values, real_size);
     cout << "ascending_seq_overwrite called on array of size: " 
-    << real size << ", array = " << test_values << endl;
+    << real_size << ", array = " << endl;
+    array_print(test_values, real_size);
     
     // Test for max_value function:
     cout << "max = array size above; max_value function= " 
@@ -128,5 +143,5 @@ int main(int argc, char ** argv)
     cout << "mean = (array size / 2) + 0.5; arithmetic_mean function = " 
     << arithmetic_mean(test_values, real_size) << endl;
     
-    return 0
+    return 0;
 }

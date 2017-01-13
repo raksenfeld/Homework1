@@ -4,7 +4,7 @@
 class Board
 {
 private:
-    char squares[][];
+    char squares[3][3];
 public:
     Board();
     ~Board();

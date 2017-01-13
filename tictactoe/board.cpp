@@ -1,7 +1,7 @@
 // board.cpp
 
 /**
- * @brief
+ * @brief Constructs a new tic-tac-toe board.
  */
 Board::Board()
 {
@@ -11,7 +11,7 @@ Board::Board()
 /**
  * @brief
  */
-char Board::Query()
+char Board::Query(int col, int row)
 {
 	//
 }
@@ -19,7 +19,7 @@ char Board::Query()
 /**
  * @brief
  */
-void Board::Place()
+void Board::Place(int col, int row, char piece)
 {
 	//
 }
@@ -31,6 +31,9 @@ char Board::CheckWin()
 {
 	//
 }
+
+
+//** Begin helper functions for CheckWin **//
 
 /**
  * @brief
@@ -55,6 +58,8 @@ char Board::CheckWinDiag()
 {
 	//
 }
+
+//** End helper functions for CheckWin **//
 
 **
  * @brief

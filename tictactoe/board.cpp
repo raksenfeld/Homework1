@@ -1,7 +1,7 @@
 // board.cpp
 
 /**
- * @brief Constructs a new tic-tac-toe board.
+ * @brief Constructs a new tic-tac-toe board instance.
  */
 Board::Board()
 {
@@ -137,6 +137,8 @@ char Board::CheckWinDiag()
 /**
  * @brief Checks if the game ended in a draw
  * 
+ * Assumes that there is no win (CheckWin was alredy called)
+ * 
  * @return true if the game ended and there is a draw, else false
  */
 bool Board::CheckDraw()
@@ -153,13 +155,7 @@ bool Board::CheckDraw()
 		}
 	}
 	
-	// Checks if there is a win on the board by calling CheckWin
-	if (CheckWin() != 'N')
-	{
-		return false;
-	}
-	
-	// Returns true if board is full and there is no win
+	// Returns true if board is full
 	return true;
 }
 

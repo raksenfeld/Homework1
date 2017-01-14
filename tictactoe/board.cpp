@@ -38,7 +38,7 @@ void Board::Place(int col, int row, char piece)
 /**
  * @brief Returns which player won, if any
  * 
- * @return the player who won ('X' or 'O') or 'U' if no wins
+ * @return the player who won ('X' or 'O') or 'N' if no wins
  */
 char Board::CheckWin()
 {
@@ -51,34 +51,66 @@ char Board::CheckWin()
 			return wins[i];
 		}
 	}
-	return 'U';
+	return 'N';
 }
 
 
 //** Begin helper functions for CheckWin **//
 
 /**
- * @brief
+ * @brief Checks if there is a win in each column
+ * 
+ * @return the player who won ('X' or 'O') or 'U' if no wins
  */
 char Board::CheckWinCol()
 {
-	//
+	for (int i = 0; i < 3; i++)
+	{
+		if (squares[i][0] == squares[i][1] 
+		   && squares[i][0] == squares[i][2]
+		   && squares[i][0] != 'U')
+		{
+			return squares[i][0];
+		}
+	}
+	return 'N';
 }
 
 /**
  * @brief
+ * 
+ * @return the player who won ('X' or 'O') or 'U' if no wins
  */
 char Board::CheckWinRow()
 {
-	//
+	for (int i = 0; i < 3; i++)
+	{
+		if (squares[0][i] == squares[1][i] 
+		   && squares[0][i] == squares[2][i]
+		   && squares[0][i] != 'U')
+		{
+			return squares[0][i];
+		}
+	}
+	return 'N';
 }
 
 /**
  * @brief
+ * 
+ * @return the player who won ('X' or 'O') or 'U' if no wins
  */
 char Board::CheckWinDiag()
 {
-	//
+	if (((squares[1][1] == squares[0][0] 
+		   && squares[1][1] == squares[2][2])
+		   || (squares[1][1] == squares[2][0] 
+		   && squares[1][1] == squares[0][2]))
+		   && squares[1][1] != 'U')
+		{
+			return squares[1][1];
+		}
+	return 'N';
 }
 
 //** End helper functions for CheckWin **//

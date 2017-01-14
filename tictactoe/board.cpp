@@ -36,7 +36,7 @@ void Board::Place(int col, int row, char piece)
 }
 
 /**
- * @brief Returns which player won, if any
+ * @brief Checks if there is a win
  * 
  * @return the player who won ('X' or 'O') or 'N' if no wins
  */
@@ -77,7 +77,7 @@ char Board::CheckWinCol()
 }
 
 /**
- * @brief
+ * @brief Checks if there is a win in each row
  * 
  * @return the player who won ('X' or 'O') or 'U' if no wins
  */
@@ -96,7 +96,7 @@ char Board::CheckWinRow()
 }
 
 /**
- * @brief
+ * @brief Checks if there is a win in each diagonal
  * 
  * @return the player who won ('X' or 'O') or 'U' if no wins
  */
@@ -115,12 +115,34 @@ char Board::CheckWinDiag()
 
 //** End helper functions for CheckWin **//
 
-**
- * @brief
+
+/**
+ * @brief Checks if the game ended in a draw
+ * 
+ * @return true if the game ended and there is a draw, else false
  */
 bool Board::CheckDraw()
 {
-	//
+	// Checks if board is full
+	for (int i = 0; i < 3; i++)   // Iterates over columns
+	{
+		for (int j = 0; j < 3; j++)   // Iterates over rows
+		{
+			if (squares[i][j] == 'U')
+			{
+				return false;
+			}
+		}
+	}
+	
+	// Checks if there is a win on the board by calling CheckWin
+	if (CheckWin() != 'N')
+	{
+		return false;
+	}
+	
+	// Returns true if board is full and there is no win
+	return true;
 }
 
 /**

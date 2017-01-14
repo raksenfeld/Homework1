@@ -7,7 +7,8 @@ private:
     char squares[3][3];
 public:
     Board();
-    ~Board();
+    ~Board();  
+    char CopySquares();
     char Query(int col, int row);
     void Place(int col, int row, char piece);
     char CheckWin();
@@ -15,5 +16,4 @@ public:
     char CheckWinRow();
     char CheckWinDiag();
     bool CheckDraw();
-    char Copy();
 };

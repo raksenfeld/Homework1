@@ -11,6 +11,24 @@ Board::Board()
 }
 
 /**
+ * @brief Constructs a copy of squares
+ * 
+ * @return copySquares (the copy of squares)
+ */
+Board::CopySquares()
+{
+	char copySquares[3][3];
+	for (int i = 0; i < 3; i++)   // Iterates over columns
+	{
+		for (int j = 0; j < 3; j++)   // Iterates over rows
+		{
+			copySquares[i][j] = squares[i][j];
+		}
+	}
+	return copySquares;
+}
+
+/**
  * @brief Given board coordinates, return a square state (U, X, or O)
  * 
  * @param col the column coordinate for the board (0 = first column)
@@ -44,7 +62,7 @@ char Board::CheckWin()
 {
 	// Call helper functions
 	char wins = {CheckWinCol(), CheckWinRow(), CheckWinDiag()};
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++) // Iterates over helper function results
 	{
 		if (wins[i] == 'X' || wins[i] == 'O')
 		{
@@ -64,7 +82,7 @@ char Board::CheckWin()
  */
 char Board::CheckWinCol()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++)   // Iterates over columns
 	{
 		if (squares[i][0] == squares[i][1] 
 		   && squares[i][0] == squares[i][2]
@@ -83,7 +101,7 @@ char Board::CheckWinCol()
  */
 char Board::CheckWinRow()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++)   // Iterates over rows
 	{
 		if (squares[0][i] == squares[1][i] 
 		   && squares[0][i] == squares[2][i]
@@ -145,11 +163,4 @@ bool Board::CheckDraw()
 	return true;
 }
 
-/**
- * @brief
- */
-char Board::Copy()
-{
-	//
-}
 

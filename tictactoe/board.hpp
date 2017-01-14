@@ -7,8 +7,7 @@ private:
     char squares[3][3];
 public:
     Board();
-    ~Board();  
-    char CopySquares();
+    ~Board();
     char Query(int col, int row);
     void Place(int col, int row, char piece);
     char CheckWin();

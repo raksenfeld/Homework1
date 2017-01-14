@@ -1,5 +1,7 @@
 // board.cpp
 
+#include "board.hpp"
+
 /**
  * @brief Constructs a new tic-tac-toe board instance.
  */
@@ -7,25 +9,21 @@ Board::Board()
 {
 	// Creates an array of 3 char arrays with 3 elts 
 	//    'U' (for unoccupied) each 
-	char squares[3][3] = {{'U', 'U', 'U'}, {'U', 'U', 'U'}, {'U', 'U', 'U'}};
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			squares[i][j] = 'U';
+		}
+	}
 }
 
 /**
- * @brief Constructs a copy of squares
- * 
- * @return copySquares (the copy of squares)
+ * @brief Deconstructor for Board class
  */
-Board::CopySquares()
+Board::~Board()
 {
-	char copySquares[3][3];
-	for (int i = 0; i < 3; i++)   // Iterates over columns
-	{
-		for (int j = 0; j < 3; j++)   // Iterates over rows
-		{
-			copySquares[i][j] = squares[i][j];
-		}
-	}
-	return copySquares;
+	
 }
 
 /**
@@ -61,7 +59,7 @@ void Board::Place(int col, int row, char piece)
 char Board::CheckWin()
 {
 	// Call helper functions
-	char wins = {CheckWinCol(), CheckWinRow(), CheckWinDiag()};
+	char wins[3] = {CheckWinCol(), CheckWinRow(), CheckWinDiag()};
 	for (int i = 0; i < 3; i++) // Iterates over helper function results
 	{
 		if (wins[i] == 'X' || wins[i] == 'O')

@@ -12,8 +12,7 @@
 
 
 #include <iostream>
-#include <game.hpp>
-#include <board.hpp>
+#include "game.hpp"
 
 using namespace std;
 
@@ -25,13 +24,13 @@ int main(int argc, char ** argv)
 	while (true)
 	{
 		// Starts a new game
-		Game game;
-		game.Run();
+		Game new_game;
+		new_game.Run();
 		
 		// Asks player if want another game
 		char choice;
 		cout << "Do you want to play again? (Y/N)" << endl;
-		cin >> i;
+		cin >> choice;
 		
 		// If no, breaks out of loop
 		if (choice == 'N')

@@ -1,6 +1,9 @@
 /**
 * @brief A tic-tac-toe game class.
 */
+
+#include "board.hpp"
+
 class Game
 {
 private:

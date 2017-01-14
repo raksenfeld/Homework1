@@ -1,12 +1,25 @@
-/ game.cpp
+// game.cpp
+
+#include <iostream>
+#include "game.hpp"
+
+using namespace std;
 
 /**
  * @brief Constructs a new tic-tac-toe game instance.
  */
 Game::Game()
 {
-	Board board;
-	char turn = 'X';   // Game always starts with 'X' going first
+	Board board();
+	turn = 'X';   // Game always starts with 'X' going first
+}
+
+/**
+ * @brief Deconstructor for Game class
+ */
+Game::~Game()
+{
+	
 }
 
 /**
@@ -15,8 +28,10 @@ Game::Game()
 void Game::Run()
 {
 	// Directions
-	cout << "'X' and 'O' are the only valid inputs (no lowercase)" << endl;
-	cout << "Please, only place your piece on a valid square" << endl;
+	cout << "----------" << endl;
+	cout << "'X' and 'O' are the only valid inputs (no lowercase)." << endl;
+	cout << "Please, only place your piece on a valid square." << endl;
+	cout << "----------" << endl;
 	
 	while (true) // While the game is running
 	{
@@ -26,6 +41,7 @@ void Game::Run()
 		char x = CheckGameOver();
 		if (x != 'N')   // If move ended game
 		{
+			ShowBoard();
 			if (x == 'D')   // If there was a draw
 			{
 				cout << "Game Over: Draw" << endl;
@@ -34,11 +50,11 @@ void Game::Run()
 			{
 				cout << "Game Over: " << x << " Wins" << endl;
 			}
-		break;   // Ends while loop
+			break;   // Ends while loop
 		}
 		// Switch turn:
-		else if (turn == 'X')   {turn = 'O'};
-		else {turn = 'X'};
+		else if (turn == 'X')    {turn = 'O';}
+		else {turn = 'X';}
 	}
 }
 
@@ -62,13 +78,13 @@ void Game::ShowBoard()
 				cout << board.Query(j, i);
 			}
 			// Prints ' ' if unoccupied
-			else if (board.Query(j, i) == 'U')
+			else
 			{
 				cout << " ";
 			}
 			
 			// Formatting
-			else if (i != 2)
+			if (j != 2)
 			{
 				cout << " ";
 			}
@@ -96,12 +112,12 @@ void Game::TakeTurn(char piece)
 	// Gets column coordinate from player
 	int col;
 	cout << "Enter column coordinate: " << endl;
-	cin >> i;
+	cin >> col;
 	
 	// Gets row coordinate from player
 	int row;
 	cout << "Enter row coordinate: " << endl;
-	cin >> i;
+	cin >> row;
 	
 	// Takes 'piece's turn on input coordinates
 	board.Place(col, row, piece);

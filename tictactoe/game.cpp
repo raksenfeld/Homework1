@@ -14,6 +14,10 @@ Game::Game()
  */
 void Game::Run()
 {
+	// Directions
+	cout << "'X' and 'O' are the only valid inputs (no lowercase)" << endl;
+	cout << "Please, only place your piece on a valid square" << endl;
+	
 	while (true) // While the game is running
 	{
 		ShowBoard();   // Print board to console
@@ -43,14 +47,38 @@ void Game::Run()
  */
 void Game::ShowBoard()
 {
+	// Formatting
 	cout << "  0 1 2" << endl;
 	cout << " +-----+" << endl;
-	for (int i = 0; i < 3; i++)
+	// Prints contents of board
+	for (int i = 0; i < 3; i++)  // Iterates over rows
 	{
-		cout << i << "|" << board.Query(i, 0) << " " 
-		     << board.Query(i, 1) << " " 
-		     << board.Query(i, 2)<< "|" << endl;
+		cout << i << "|";
+		for (int j = 0; j < 3; j++)   // Iterates over columns
+		{
+			// Prints player piece
+			if (board.Query(j, i) != 'U')
+			{
+				cout << board.Query(j, i);
+			}
+			// Prints ' ' if unoccupied
+			else if (board.Query(j, i) == 'U')
+			{
+				cout << " ";
+			}
+			
+			// Formatting
+			else if (i != 2)
+			{
+				cout << " ";
+			}
+			else
+			{
+				cout << "|" << endl;
+			}
+		}
 	}
+	// Formatting
 	cout << " +-----+" << endl;
 }
 
